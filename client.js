@@ -41,3 +41,33 @@ const employees = [
 // Ask questions when you don't.
 
 console.log( employees );
+
+//functions
+
+function calculateBonus(rating, salary, seniority){
+  let bonus = 0;
+  // apply ratings
+  if(rating <= 2){
+    return bonus;
+  }else if(rating == 3){
+    bonus += 0.04;
+  }else if(rating == 4){
+    bonus += 0.06;
+  }else{
+    bonus += 0.1;
+  }
+  //check for senior bonus
+  if(seniority.length <= 4){
+    bonus += 0.05;
+  }
+  //check for salary cap
+  if(salary > 65000){
+    bonus -= 0.01;
+  }
+  //check for bonus cap
+  if(bonus > 0.13){
+    return 0.13;
+  }else{
+    return bonus;
+  }
+}// end calculateBonus
