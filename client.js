@@ -44,6 +44,12 @@ console.log( employees );
 
 let employeeInfo = [];
 
+for(person of employees){
+  employeeInfo.push(returnEmployeeInfo(person));
+}
+
+console.log(employeeInfo);
+
 
 //functions
 
@@ -76,16 +82,11 @@ function calculateBonus(rating, salary, seniority){
 }// end calculateBonus
 
 function returnEmployeeInfo(people){
-  let person = {
-    name: ,
-    bonusPercentage: ,
-    totalCompensation: ,
-    totalBonus: ,
-  }
+  let person = {}
   person.name = people.name;
-  person.bonusPercentage = calculateBonus(people) * 100;
-  person.totalBonus = calculateBonus(people) * people.annualSalary;
-  person.totalCompensation = person.totalBonus + people.annualSalary;
+  person.bonusPercentage = calculateBonus(people.reviewRating, people.annualSalary, people.employeeNumber) * 100;
+  person.totalBonus = calculateBonus(people.reviewRating, people.annualSalary, people.employeeNumber) * people.annualSalary;
+  person.totalCompensation = person.totalBonus + Number(people.annualSalary);
 
   return person;
 }
