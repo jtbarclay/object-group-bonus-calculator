@@ -42,6 +42,9 @@ const employees = [
 
 console.log( employees );
 
+let employeeInfo = [];
+
+
 //functions
 
 function calculateBonus(rating, salary, seniority){
@@ -71,3 +74,18 @@ function calculateBonus(rating, salary, seniority){
     return bonus;
   }
 }// end calculateBonus
+
+function returnEmployeeInfo(people){
+  let person = {
+    name: ,
+    bonusPercentage: ,
+    totalCompensation: ,
+    totalBonus: ,
+  }
+  person.name = people.name;
+  person.bonusPercentage = calculateBonus(people) * 100;
+  person.totalBonus = calculateBonus(people) * people.annualSalary;
+  person.totalCompensation = person.totalBonus + people.annualSalary;
+
+  return person;
+}
