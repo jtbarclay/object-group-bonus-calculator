@@ -40,15 +40,19 @@ const employees = [
 // This is not a race. Everyone on your team should understand what is happening.
 // Ask questions when you don't.
 
+$(document).ready(readyNow);
+
 console.log( employees );
 
 let employeeInfo = [];
 
-for(person of employees){
+for(let person of employees){
   employeeInfo.push(returnEmployeeInfo(person));
 }
 
 console.log(employeeInfo);
+
+
 
 
 //functions
@@ -89,4 +93,17 @@ function returnEmployeeInfo(people){
   person.totalCompensation = person.totalBonus + Number(people.annualSalary);
 
   return person;
+}
+
+function displayEmployeeInfo(){
+  let el = $('#employeeBonusInfo');
+  el.empty();
+
+  for(let person of employeeInfo){
+    el.append(`<li>${person.name} should recieve a bonus of ${person.bonusPercentage}%. With their $${person.totalBonus} bonus, their total compensation will be $${person.totalCompensation}.`);
+  }
+}
+
+function readyNow(){
+  $('#calculateButton').on('click', displayEmployeeInfo);
 }
